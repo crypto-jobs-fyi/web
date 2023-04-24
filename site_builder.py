@@ -1,14 +1,15 @@
 from datetime import datetime
 import json
+import urllib.request
 
 from src.company_item import CompanyItem
 from src.company_list import get_company_list, get_logo
 
 company_list = get_company_list()
 just_date = datetime.date(datetime.now())
-with open('current.json') as json_file:
-    current_data = json.load(json_file)
-total_jobs = current_data['Total Jobs']
+with urllib.request.urlopen("https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json") as url:
+    current_jobs = json.load(url)['data']
+total_jobs = len(current_jobs)
 first_line = f'Number of companies: {len(company_list)} -> Number of jobs: {total_jobs} Last Updated at: {just_date}'
 
 with open('index.html', 'w') as f:
@@ -270,14 +271,9 @@ def add_jobs_to_web3(company_item: CompanyItem, jobs_data):
         web3_file.write(html)
 
 
-with open('jobs.json', 'r') as f:
-    jobs_json = json.load(f)
-    jobs_data = jobs_json.get('data', [])
-    print(f'Loaded {len(jobs_data)} companies job data')
-
 for company in company_list:
     company_logo = get_logo(company.company_name)
-    company_data = list(filter(lambda jd: jd.get('company') == company.company_name, jobs_data))
+    company_data = list(filter(lambda jd: jd.get('company') == company.company_name, current_jobs))
     add_jobs_to_index(company, company_data, company_logo)
     add_jobs_to_test(company, company_data)
     add_jobs_to_dev(company, company_data)
