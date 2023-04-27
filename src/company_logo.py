@@ -6,6 +6,8 @@ def get_logo(company_name):
     company_logos = [
         'wintermute',
         'mobilecoin',
+        'bitpanda',
+        'bitmex',
         'tether',
         'paradigm.com',
         'paradigm.xyz',
