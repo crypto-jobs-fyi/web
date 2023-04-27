@@ -8,6 +8,7 @@ def get_logo(company_name):
         'mobilecoin',
         'bitpanda',
         'bitmex',
+        'OKX',
         'tether',
         'paradigm.com',
         'paradigm.xyz',
