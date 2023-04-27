@@ -229,6 +229,13 @@ def get_logo(company_name):
     company_logos = {
         'wintermute': build_img_tag(company_name),
         'mobilecoin': build_img_tag(company_name),
+        'tether': build_img_tag(company_name),
+        'paradigm.com': build_img_tag(company_name),
+        'paradigm.xyz': build_img_tag(company_name),
+        'dune': build_img_tag(company_name),
+        'bitfury': build_img_tag(company_name),
+        'archblock': build_img_tag(company_name),
+        '0x': build_img_tag(company_name),
         'chia': build_img_tag(company_name),
         'AQX': build_img_tag(company_name),
         'kraken': build_img_tag(company_name),
