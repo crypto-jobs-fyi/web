@@ -3,14 +3,22 @@ import json
 import urllib.request
 
 from src.company_item import CompanyItem
-from src.company_list import get_company_list, get_logo
+from src.company_logo import get_logo
 
-company_list = get_company_list()
+companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/test/companies.json"
+jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
+with urllib.request.urlopen(companies_url) as url:
+    company_list_json = json.load(url)
+company_list = []
+for it in company_list_json:
+    company_list.append(CompanyItem(it['company_name'], it['company_url'], it['jobs_url']))
+
 just_date = datetime.date(datetime.now())
-with urllib.request.urlopen("https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json") as url:
+with urllib.request.urlopen(jobs_url) as url:
     current_jobs = json.load(url)['data']
 total_jobs = len(current_jobs)
 first_line = f'Number of companies: {len(company_list)} -> Number of jobs: {total_jobs} Last Updated at: {just_date}'
+print(first_line)
 
 with open('index.html', 'w') as f:
     f.write(
