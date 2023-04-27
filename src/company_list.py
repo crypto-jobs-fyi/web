@@ -273,7 +273,7 @@ def get_logo(company_name):
         'avalabs': build_img_tag(company_name),
         'Polygon': build_img_tag(company_name),
         'multiversx': build_img_tag(company_name),
-        'status': '<img alt="Status" src="https://status.im/img/logo.svg" loading="lazy" width="182" height: auto >',
+        'status': build_img_tag(company_name),
         'cexio': build_img_tag(company_name),
         'dappradar': build_img_tag(company_name),
         'web3': '<img src="https://images4.bamboohr.com/104723/logos/cropped.jpg?v=47" alt="Web3" loading="lazy" width="182" height: auto >',
