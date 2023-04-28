@@ -7,6 +7,7 @@ def get_logo(company_name):
         'wintermute',
         'mobilecoin',
         'bitpanda',
+        'bitgo',
         'bitmex',
         'OKX',
         'tether',
