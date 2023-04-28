@@ -5,7 +5,7 @@ import urllib.request
 from src.company_item import CompanyItem
 from src.company_logo import get_logo
 
-companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/test/companies.json"
+companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
 with urllib.request.urlopen(companies_url) as url:
     company_list_json = json.load(url)

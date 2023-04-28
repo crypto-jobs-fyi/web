@@ -2,7 +2,7 @@ import json
 import urllib.request
 from src.company_item import CompanyItem
 
-companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/test/companies.json"
+companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 with urllib.request.urlopen(companies_url) as url:
     data = json.load(url)
 
