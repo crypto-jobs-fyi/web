@@ -27,14 +27,15 @@ with open('index.html', 'w') as f:
                       'target="_blank">0x589a0D87d600a6C6fAa34c491C9e779f434bC51d</a>'
     f.write(f'<p align="center"> If you find this page useful please donate ETH/ERC-20* to {eth_wallet_link} </p>')
     f.write(f'<p align="center"> *On Etherium, Arbitrum, Optimism or Polygon </p>')
-    table_link = '<a href="table.html" target="_blank">Table</a>'
+    table_link = '<a href="table.html"> View as Table </a>'
+    f.write(f'<p align="center"> || {table_link} || </p>')
     test_link = '<a href="test.html" target="_blank">Test jobs</a>'
     dev_link = '<a href="dev.html" target="_blank">Dev jobs</a>'
     web3_link = '<a href="web3.html" target="_blank">Web3 jobs</a>'
     finance_link = '<a href="finance.html" target="_blank">Finance jobs</a>'
     devops_link = '<a href="devops.html" target="_blank">DevOps/SRE jobs</a>'
     data_link = '<a href="data.html" target="_blank">Data jobs</a>'
-    links = [table_link, test_link, dev_link, web3_link, finance_link, devops_link, data_link]
+    links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link]
     joined_links = ' || '.join(links)
     f.write(f'<p align="center"> {joined_links} </p>')
 with open('test.html', 'w') as f:
