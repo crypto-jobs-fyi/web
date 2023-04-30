@@ -16,6 +16,8 @@ def get_logo(company_name):
         'digitalasset',
         'exodus54',
         'offchainlabs',
+        'tokenmetrics',
+        'crypto',
         'alchemy',
         'amun',
         'dfinity',
