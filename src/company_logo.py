@@ -7,6 +7,8 @@ def get_logo(company_name):
         'genesisglobaltradinginc',
         'gauntlet',
         'royal',
+        'exodus54',
+        'alchemy',
         'quiknodeinc',
         'wintermute',
         'mobilecoin',
