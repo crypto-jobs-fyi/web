@@ -9,6 +9,7 @@ def get_logo(company_name):
         'royal',
         'exodus54',
         'alchemy',
+        'amun',
         'quiknodeinc',
         'wintermute',
         'mobilecoin',
