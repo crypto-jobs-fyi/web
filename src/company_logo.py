@@ -10,6 +10,7 @@ def get_logo(company_name):
         'exodus54',
         'alchemy',
         'amun',
+        'chainalysis',
         'quiknodeinc',
         'wintermute',
         'mobilecoin',
