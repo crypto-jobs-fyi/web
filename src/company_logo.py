@@ -5,6 +5,7 @@ def build_img_tag(name):
 def get_logo(company_name):
     company_logos = [
         'genesisglobaltradinginc',
+        'galaxydigitalservices',
         'gauntlet',
         'royal',
         'exodus54',
@@ -12,6 +13,7 @@ def get_logo(company_name):
         'amun',
         'dfinity',
         'parity',
+        'solana',
         'flashbots',
         'oplabs',
         'optimism',
