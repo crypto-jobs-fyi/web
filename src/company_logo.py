@@ -11,7 +11,7 @@ def get_logo(company_name):
         'gauntlet',
         'royal', 'swissborg',
         'copperco',
-        'messari', 'coinshift',
+        'messari', 'Coinshift',
         'storyprotocol',
         'tron', 'OpenSea',
         'subspacelabs',
