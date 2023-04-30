@@ -1,0 +1,72 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<link href="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.datatables.net/r/dt/dt-1.10.22/datatables.min.js" type="text/javascript"></script>
+<script>
+     $(document).ready(function () {
+          $('#jobs tfoot th').each(function () {
+               var title = $(this).text();
+               $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+          });
+          getDataForDatatables();
+     });
+
+     function getDataForDatatables() {
+          var test = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json";
+          var jd = $.getJSON(test, {
+               format: "json"
+          })
+               .done(function (jsonData) {
+                    setDataToTable(jsonData);
+               });
+     }
+
+     function setDataToTable(jsonData) {
+          $('#jobs').DataTable({
+               pagination: "bootstrap",
+               filter: true,
+               data: jsonData,
+               destroy: true,
+               lengthMenu: [10, 25, 50, 100],
+               pageLength: 25,
+               initComplete: function () {
+                    this.api()
+                         .columns()
+                         .every(function () {
+                              var that = this;
+
+                              $('input', this.footer()).on('keyup change clear', function () {
+                                   if (that.search() !== this.value) {
+                                        that.search(this.value).draw();
+                                   }
+                              });
+                         });
+               },
+               "columns": [
+                    { "data": "company_name" },
+                    { "data": "company_url" },
+                    { "data": "jobs_url" }
+               ]
+          });
+     }
+
+</script>
+<table cellspacing="0" class="display" id="jobs" width="100%">
+    <thead>
+    <tr>
+        <th>Company Name</th>
+        <th>Web Page</th>
+        <th>Jobs Page</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Company Name</th>
+        <th>Web Page</th>
+        <th>Jobs Page</th>
+    </tr>
+    </tfoot>
+
+</table>

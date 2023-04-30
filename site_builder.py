@@ -17,7 +17,10 @@ just_date = datetime.date(datetime.now())
 with urllib.request.urlopen(jobs_url) as url:
     current_jobs = json.load(url)['data']
 total_jobs = len(current_jobs)
-first_line = f'Number of companies: {len(company_list)} -> Number of jobs: {total_jobs} Last Updated at: {just_date}'
+total_companies = len(company_list)
+number_of_companies = f'Number of companies: {total_companies}'
+number_of_companies_link = f'<a href="companies.html" target="_blank">{number_of_companies}</a>'
+first_line = f'{number_of_companies_link} -> Number of jobs: {total_jobs} Last Updated at: {just_date}'
 print(first_line)
 
 with open('index.html', 'w') as f:
