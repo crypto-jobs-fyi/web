@@ -14,6 +14,7 @@ def get_logo(company_name):
         'dfinity',
         'parity',
         'solana',
+        'ledger',
         'flashbots',
         'oplabs',
         'optimism',
