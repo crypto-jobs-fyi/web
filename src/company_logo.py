@@ -20,7 +20,7 @@ def get_logo(company_name):
         'offchainlabs',
         'tokenmetrics',
         'crypto', 'syndica',
-        'aave', 'swissquote',
+        'aave', 'Swissquote',
         'alchemy',
         'amun', 'ellipsislabs',
         'dfinity',
