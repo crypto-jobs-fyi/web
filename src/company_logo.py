@@ -6,8 +6,11 @@ def get_logo(company_name):
     company_logos = [
         'genesisglobaltradinginc',
         'galaxydigitalservices',
+        'ramp.network',
         'gauntlet',
         'royal',
+        'copperco',
+        'digitalasset',
         'exodus54',
         'alchemy',
         'amun',
