@@ -4,6 +4,10 @@ def build_img_tag(name):
 
 def get_logo(company_name):
     company_logos = [
+        'genesisglobaltradinginc',
+        'gauntlet',
+        'royal',
+        'quiknodeinc',
         'wintermute',
         'mobilecoin',
         'bitpanda',
