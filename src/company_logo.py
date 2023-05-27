@@ -111,7 +111,7 @@ def get_logo(company_name):
         'immunefi',
         'protocollabs',
         'foundrydigital',
-        'o1labs',
+        'o1labs', 'trmlabs',
         '3boxlabs',
         'BlockSwap',
         'orderlynetwork',
