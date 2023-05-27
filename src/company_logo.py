@@ -109,7 +109,13 @@ def get_logo(company_name):
         'solanafoundation',
         'fuellabs',
         'immunefi',
-        'protocollabs'
+        'protocollabs',
+        'foundrydigital',
+        'o1labs',
+        '3boxlabs',
+        'BlockSwap',
+        'orderlynetwork',
+        'sprucesystems'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
