@@ -223,9 +223,9 @@ def dict_to_html_table_with_header_and_filter(company_name, job_list, filter):
 
     if len(filtered) > 0:
         jobs_total = f"Total {filter.__name__}(s): {len(filtered)}"
-        print(f'[ BUILDER] {jobs_total} at {company_name}')
+        print(f'[BUILDER] {jobs_total} at {company_name}')
     else:
-        print(f'[ BUILDER] no jobs filtered by {filter.__name__} at {company_name}')
+        print(f'[BUILDER] no jobs filtered by {filter.__name__} at {company_name}')
         return ''
 
     html_table = '<table width="78%" align="center" border="1">'
