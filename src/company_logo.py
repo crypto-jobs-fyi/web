@@ -115,7 +115,8 @@ def get_logo(company_name):
         '3boxlabs',
         'BlockSwap',
         'orderlynetwork',
-        'sprucesystems'
+        'sprucesystems',
+        'arbitrumfoundation'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
