@@ -38,7 +38,8 @@ with open('index.html', 'w') as f:
     finance_link = '<a href="finance.html" target="_blank">Finance jobs</a>'
     devops_link = '<a href="devops.html" target="_blank">DevOps/SRE jobs</a>'
     data_link = '<a href="data.html" target="_blank">Data jobs</a>'
-    links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link]
+    security_link = '<a href="security.html" target="_blank">Security jobs</a>'
+    links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link, security_link]
     joined_links = ' || '.join(links)
     f.write(f'<p align="center"> {joined_links} </p>')
 with open('test.html', 'w') as f:
@@ -52,6 +53,8 @@ with open('finance.html', 'w') as f:
 with open('web3.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 with open('data.html', 'w') as f:
+    f.write('<!DOCTYPE html>')
+with open('security.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 
 
@@ -84,7 +87,7 @@ def is_dev_job(title):
         'full-stack dev',
         'python developer',
         'java development lead',
-        'python dev',
+        'python dev', 'Go Engineer',
         'Golang Developer',
         'Engineer - Java',
         'Java Development Engineer',
@@ -118,7 +121,8 @@ def is_dev_job(title):
         'iOS Developer', 'Android Developer',
         'iOS Engineer', 'Android Engineer',
         'Scala Engineer',
-        'Wordpress Developer'
+        'Wordpress Developer',
+        'Application Engineer'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
@@ -140,7 +144,8 @@ def is_web3_job(title):
     tags = ['Blockchain Developer', 'Cryptography Engineer', 'Protocol Engineer', 'Protocol Research',
             'Zero Knowledge Research Engineer', 'Smart Contract Engineer', 'Blockchain Engineer',
             'Blockchain Client Engineer', 'Cryptographer', 'Blockchain Integration Specialist',
-            'Solidity Developer', 'Web3 developer', 'Smart Contract Developer']
+            'Solidity Developer', 'Web3 developer', 'Smart Contract Developer', 'Engineer - Smart Contract',
+            'Cryptography Researcher']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head']
     if any(ext.lower() in title.lower() for ext in anti_filters):
@@ -182,6 +187,20 @@ def is_dev_ops_job(title):
     return result
 
 
+def is_security_job(title):
+    tags = [
+        'Cloud Security Engineer',
+        'Security Engineer',
+        'Security Response Engineer',
+        'Security Lead'
+    ]
+    result = filter_jobs(title, tags)
+    anti_filters = ['test', 'qa', 'manager', 'sdet', 'director', 'counsel']
+    if any(ext.lower() in title.lower() for ext in anti_filters):
+        return False
+    return result
+
+
 def is_data_job(title):
     tags = ['Data Engineer', 'Data Analyst', 'Data Scientist', 'Data Engineer', 'Data Analytics Engineer',
             'Data Science', 'DataOps Engineer']
@@ -201,6 +220,8 @@ def set_color(title):
         return ' bgcolor="MediumOrchid" '
     elif is_web3_job(title):
         return ' bgcolor="DeepSkyBlue" '
+    elif is_security_job(title):
+        return ' bgcolor="Khaki" '
     else:
         return ""
 
@@ -289,6 +310,12 @@ def add_jobs_to_web3(company_item: CompanyItem, jobs_data):
         web3_file.write(html)
 
 
+def add_jobs_to_security(company_item: CompanyItem, jobs_data):
+    html = dict_to_html_table_with_header_and_filter(company_item.company_name, jobs_data, filter=is_security_job)
+    with open('security.html', 'a') as security_file:
+        security_file.write(html)
+
+
 for company in company_list:
     company_logo = get_logo(company.company_name)
     company_data = list(filter(lambda jd: jd.get('company') == company.company_name, current_jobs))
@@ -299,3 +326,4 @@ for company in company_list:
     add_jobs_to_data(company, company_data)
     add_jobs_to_finance(company, company_data)
     add_jobs_to_web3(company, company_data)
+    add_jobs_to_security(company, company_data)
