@@ -117,7 +117,8 @@ def is_dev_job(title):
         'React Native Engineer',
         'iOS Developer', 'Android Developer',
         'iOS Engineer', 'Android Engineer',
-        'Scala Engineer'
+        'Scala Engineer',
+        'Wordpress Developer'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
@@ -150,7 +151,7 @@ def is_web3_job(title):
 def is_finance_job(title):
     tags = ['Accountant', 'Treasury', 'Finance', 'Accounting', 'Tax Specialist', 'Financial', 'FinCrime',
             'Accounts Payable', 'Treasurer', 'Payroll Specialist', 'Corporate Controller', 'Tax Analyst',
-            'Accounts Receivable']
+            'Accounts Receivable', 'Payroll Coordinator']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head of', 'Scientist', 'Engineer']
     if any(ext.lower() in title.lower() for ext in anti_filters):
@@ -171,9 +172,14 @@ def is_dev_ops_job(title):
         'Tooling Engineer',
         'Infrastructure Development Engineer',
         'Infrastructure & Tooling',
-        'Release Automation Engineer'
+        'Release Automation Engineer',
+        'Kubernetes Engineer'
     ]
-    return filter_jobs(title, tags)
+    result = filter_jobs(title, tags)
+    anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
+    if any(ext.lower() in title.lower() for ext in anti_filters):
+        return False
+    return result
 
 
 def is_data_job(title):
