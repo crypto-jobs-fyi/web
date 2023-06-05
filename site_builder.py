@@ -122,7 +122,8 @@ def is_dev_job(title):
         'iOS Engineer', 'Android Engineer',
         'Scala Engineer',
         'Wordpress Developer',
-        'Application Engineer'
+        'Application Engineer',
+        'Compiler/Language Engineer'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
