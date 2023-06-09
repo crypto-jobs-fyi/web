@@ -7,6 +7,7 @@ from src.company_logo import get_logo
 
 companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
+jobs_age_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs_age.json"
 with urllib.request.urlopen(companies_url) as url:
     company_list_json = json.load(url)
 company_list = []
@@ -16,6 +17,8 @@ for it in company_list_json:
 just_date = datetime.date(datetime.now())
 with urllib.request.urlopen(jobs_url) as url:
     current_jobs = json.load(url)['data']
+with urllib.request.urlopen(jobs_age_url) as url:
+    jobs_age = json.load(url)
 total_jobs = len(current_jobs)
 total_companies = len(company_list)
 number_of_companies = f'Number of companies: {total_companies}'
@@ -232,13 +235,16 @@ def dict_to_html_table_with_header(company_item: CompanyItem, job_list, logo='')
     jobs_total = f"Total Jobs: {len(job_list)}"
     header_link = f"<a href='{company_item.company_url}' target='_blank'>{company_item.company_name.upper()}</a>"
     jobs_total_link = f"<a href='{company_item.jobs_url}' target='_blank'> {jobs_total} </a>"
-    html_table += f"<tr><th width='22%'> {logo} </th><th> {header_link} </th><th width='12%' > {jobs_total_link} </th></tr>"
+    html_table += f"<tr><th width='20%'> {logo} </th><th> {header_link} </th><th width='4%' align='center'> Age </th><th width='12%'> {jobs_total_link} </th></tr>"
     for elem in job_list:
         color_code = set_color(elem['title'])
         wrapped_link = elem['link']
         location = elem['location']
         job_title = elem['title']
-        html_table += f"<tr {color_code}><td width='22%'>{location}</td><td>{job_title}</td><td width='12%' align='center'>{wrapped_link}</td></tr>"
+        job_age = jobs_age[elem['link']]
+        job_age_title = f"title='{job_age} day(s)'"
+        job_link_td = f"<td width='12%' align='center' {job_age_title}>{wrapped_link}</td>"
+        html_table += f"<tr {color_code}><td width='22%'>{location}</td><td>{job_title}</td><td align='center'>{job_age}</td>{job_link_td}</tr>"
     html_table += "</table>"
     return html_table
 
