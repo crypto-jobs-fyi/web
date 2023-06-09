@@ -160,7 +160,7 @@ def is_web3_job(title):
 def is_finance_job(title):
     tags = ['Accountant', 'Treasury', 'Finance', 'Accounting', 'Tax Specialist', 'Financial', 'FinCrime',
             'Accounts Payable', 'Treasurer', 'Payroll Specialist', 'Corporate Controller', 'Tax Analyst',
-            'Accounts Receivable', 'Payroll Coordinator']
+            'Accounts Receivable', 'Payroll Coordinator', 'Revenue Analyst']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head of', 'Scientist', 'Engineer']
     if any(ext.lower() in title.lower() for ext in anti_filters):
@@ -196,7 +196,8 @@ def is_security_job(title):
         'Cloud Security Engineer',
         'Security Engineer',
         'Security Response Engineer',
-        'Security Lead'
+        'Security Lead',
+        'Cyber Threat'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director', 'counsel']
