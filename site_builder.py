@@ -35,16 +35,17 @@ with open('index.html', 'w') as f:
     f.write(f'<p align="center"> *On Etherium, Arbitrum, Optimism or Polygon </p>')
     table_link = '<a href="table.html"> View as Table </a>'
     f.write(f'<p align="center"> || {table_link} || </p>')
-    test_link = '<a href="test.html" target="_blank">Test jobs</a>'
-    dev_link = '<a href="dev.html" target="_blank">Dev jobs</a>'
-    web3_link = '<a href="web3.html" target="_blank">Web3 jobs</a>'
-    finance_link = '<a href="finance.html" target="_blank">Finance jobs</a>'
-    devops_link = '<a href="devops.html" target="_blank">DevOps/SRE jobs</a>'
-    data_link = '<a href="data.html" target="_blank">Data jobs</a>'
-    security_link = '<a href="security.html" target="_blank">Security jobs</a>'
+    test_link = '<th width=11% bgcolor="lightgreen"><a href="test.html" target="_blank">Test jobs</a></th>'
+    dev_link = '<th width=11% bgcolor="lightblue"><a href="dev.html" target="_blank">Dev jobs</a></th>'
+    web3_link = '<th width=11% bgcolor="DeepSkyBlue"><a href="web3.html" target="_blank">Web3 jobs</a></th>'
+    finance_link = '<th width=11% bgcolor="MediumOrchid"><a href="finance.html" target="_blank">Finance jobs</a></th>'
+    devops_link = '<th width=11% bgcolor="lightyellow"><a href="devops.html" target="_blank">DevOps/SRE jobs</a></th>'
+    data_link = '<th width=11% bgcolor="cyan"><a href="data.html" target="_blank">Data jobs</a></th>'
+    security_link = '<th width=11% bgcolor="Khaki"><a href="security.html" target="_blank">Security jobs</a></th>'
     links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link, security_link]
-    joined_links = ' || '.join(links)
-    f.write(f'<p align="center"> {joined_links} </p>')
+    joined_links = f"<tr>{''.join(links)}</tr>"
+    f.write(f"<table width='78%' align='center' border=1>{joined_links}</table>")
+    f.write(f'<p align="center"> </p>')
 with open('test.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 with open('dev.html', 'w') as f:
