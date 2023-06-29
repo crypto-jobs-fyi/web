@@ -26,7 +26,7 @@ def get_logo(company_name):
         'alchemy', 'immutable',
         'amun', 'ellipsislabs',
         'dfinity', 'web3auth',
-        'parity',
+        'parity', 'kiln',
         'solana',
         'ledger',
         'flashbots',
