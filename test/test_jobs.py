@@ -5,3 +5,6 @@ with urllib.request.urlopen("https://raw.githubusercontent.com/crypto-jobs-fyi/c
     data = json.load(url)['data']
 
 print(f'Number of jobs: {len(data)}')
+for it in data:
+    if it['company'] == 'kaiko':
+        print(it)
