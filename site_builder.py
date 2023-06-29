@@ -128,7 +128,9 @@ def is_dev_job(title):
         'Scala Engineer',
         'Wordpress Developer',
         'Application Engineer',
-        'Compiler/Language Engineer'
+        'Compiler/Language Engineer',
+        'Front End Engineer',
+        'Front-End'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
@@ -172,8 +174,8 @@ def is_finance_job(title):
 
 def is_dev_ops_job(title):
     tags = [
-        'devops',
-        'sre',
+        'devops', 'sre',
+        'Dev Ops Engineer',
         'site reliability',
         'platforms engineer',
         'infrastructure engineer',
