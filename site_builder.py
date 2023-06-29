@@ -153,7 +153,8 @@ def is_web3_job(title):
             'Zero Knowledge Research Engineer', 'Smart Contract Engineer', 'Blockchain Engineer',
             'Blockchain Client Engineer', 'Cryptographer', 'Blockchain Integration Specialist',
             'Solidity Developer', 'Web3 developer', 'Smart Contract Developer', 'Engineer - Smart Contract',
-            'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits', 'Solidity Engineer']
+            'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits', 'Solidity Engineer',
+            'Research Engineer', 'Zero-Knowledge Proof']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head']
     if any(ext.lower() in title.lower() for ext in anti_filters):
@@ -180,7 +181,6 @@ def is_dev_ops_job(title):
         'platforms engineer',
         'infrastructure engineer',
         'network engineer',
-        'devsecops',
         'Platform Engineer',
         'Tooling Engineer',
         'Infrastructure Development Engineer',
@@ -201,7 +201,7 @@ def is_security_job(title):
         'Security Engineer',
         'Security Response Engineer',
         'Security Lead',
-        'Cyber Threat'
+        'Cyber Threat', 'SecOps Engineer'
     ]
     result = filter_jobs(title, tags)
     anti_filters = ['test', 'qa', 'manager', 'sdet', 'director', 'counsel']
