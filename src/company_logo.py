@@ -8,6 +8,8 @@ def get_logo(company_name):
         'ethereumfoundation',
         'chainsafesystems',
         'ramp.network',
+        'econetwork',
+        'penumbralabs',
         'gauntlet', 'kadena',
         'royal', 'swissborg',
         'copperco',
