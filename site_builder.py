@@ -70,6 +70,7 @@ def filter_jobs(job_title: str, filters):
 
 def is_dev_job(title):
     tags = [
+        'Node.js Engineer',
         'software engineer',
         'stack engineer',
         'systems engineer',
@@ -150,7 +151,7 @@ def is_web3_job(title):
             'Zero Knowledge Research Engineer', 'Smart Contract Engineer', 'Blockchain Engineer',
             'Blockchain Client Engineer', 'Cryptographer', 'Blockchain Integration Specialist',
             'Solidity Developer', 'Web3 developer', 'Smart Contract Developer', 'Engineer - Smart Contract',
-            'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits']
+            'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits', 'Solidity Engineer']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head']
     if any(ext.lower() in title.lower() for ext in anti_filters):
