@@ -27,6 +27,7 @@ def get_logo(company_name):
         'amun', 'ellipsislabs',
         'dfinity', 'web3auth',
         'parity', 'kiln',
+        'ankr', 'ultra',
         'solana',
         'ledger',
         'flashbots',
