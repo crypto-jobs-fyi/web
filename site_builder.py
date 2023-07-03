@@ -1,9 +1,11 @@
-from datetime import datetime
 import json
 import urllib.request
+from datetime import datetime
 
 from src.company_item import CompanyItem
 from src.company_logo import get_logo
+from src.job_filter import is_test_job, is_dev_job, is_dev_ops_job, is_data_job, is_finance_job, is_web3_job, \
+    is_security_job
 
 companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
@@ -19,12 +21,46 @@ with urllib.request.urlopen(jobs_url) as url:
     current_jobs = json.load(url)['data']
 with urllib.request.urlopen(jobs_age_url) as url:
     jobs_age = json.load(url)
+
 total_jobs = len(current_jobs)
 total_companies = len(company_list)
 number_of_companies = f'Number of companies: {total_companies}'
 number_of_companies_link = f'<a href="companies.html" target="_blank">{number_of_companies}</a>'
 first_line = f'{number_of_companies_link} -> Number of jobs: {total_jobs} Last Updated at: {just_date}'
 print(first_line)
+num_test = 0
+num_dev = 0
+num_web3 = 0
+num_fin = 0
+num_ops = 0
+num_data = 0
+num_sec = 0
+for j in current_jobs:
+    j_title = j['title']
+    if is_dev_job(j_title):
+        num_dev = num_dev + 1
+    if is_data_job(j_title):
+        num_data = num_data + 1
+    if is_test_job(j_title):
+        num_test = num_test + 1
+    if is_web3_job(j_title):
+        num_web3 = num_web3 + 1
+    if is_finance_job(j_title):
+        num_fin = num_fin + 1
+    if is_dev_ops_job(j_title):
+        num_ops = num_ops + 1
+    if is_security_job(j_title):
+        num_sec = num_sec + 1
+
+print(f'>>> Numer of Dev jobs: {num_dev}')
+print(f'>>> Numer of Data jobs: {num_data}')
+print(f'>>> Numer of Test jobs: {num_test}')
+print(f'>>> Numer of Finance jobs: {num_fin}')
+
+
+def center_td(text):
+    return f"<td align='center'>{text}</td>"
+
 
 with open('index.html', 'w') as f:
     f.write(
@@ -44,7 +80,8 @@ with open('index.html', 'w') as f:
     security_link = '<th width=11% bgcolor="Khaki"><a href="security.html" target="_blank">Security jobs</a></th>'
     links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link, security_link]
     joined_links = f"<tr>{''.join(links)}</tr>"
-    f.write(f"<table width='78%' align='center' border=1>{joined_links}</table>")
+    joined_nums = f"<tr>{center_td(num_test)}{center_td(num_dev)}{center_td(num_web3)}{center_td(num_fin)}{center_td(num_ops)}{center_td(num_data)}{center_td(num_sec)}</tr>"
+    f.write(f"<table width='78%' align='center' border=1>{joined_links}{joined_nums}</table>")
     f.write(f'<p align="center"> </p>')
 with open('test.html', 'w') as f:
     f.write('<!DOCTYPE html>')
@@ -60,160 +97,6 @@ with open('data.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 with open('security.html', 'w') as f:
     f.write('<!DOCTYPE html>')
-
-
-def filter_jobs(job_title: str, filters):
-    if any(ext.lower() in job_title.lower() for ext in filters):
-        return True
-    return False
-
-
-def is_dev_job(title):
-    tags = [
-        'Node.js Engineer',
-        'software engineer',
-        'stack engineer',
-        'systems engineer',
-        'System Engineer',
-        'java engineer',
-        'backend engineer',
-        'backend developer',
-        'java developer',
-        'rust engineer',
-        'golang engineer',
-        'principal engineer',
-        'back-end engineer',
-        'senior java',
-        'staff engineer',
-        'api engineer',
-        'rust developer',
-        'full stack developer',
-        'c++ developer',
-        'full-stack dev',
-        'python developer',
-        'java development lead',
-        'python dev', 'Go Engineer',
-        'Golang Developer',
-        'Engineer - Java',
-        'Java Development Engineer',
-        'Frontend Developer',
-        'Software Development Engineer',
-        'Software Architect',
-        'Frontend Engineer',
-        'Front End Developer',
-        'Frontend Architect ',
-        'Front-end Developer',
-        'Web Developer',
-        'Front-End Engineer',
-        'Lead Engineer',
-        'Fullstack Developer',
-        'Solutions Engineer',
-        'Compiler Engineer',
-        '(Front-End) Engineer',
-        'Solutions Engineer',
-        'TypeScript Toolkit Engineer',
-        'Technical Lead',
-        'Backend / Fullstack',
-        'Front End Architect',
-        'Solution Architect ',
-        'Golang Team Lead',
-        'Senior Engineer, Frontend',
-        'C++ Engineer', 'UI/UX Developer',
-        'Indexer Engineer', 'Python/C++',
-        'Mobile Engineer',
-        'Senior Engineer – Java',
-        'React Native Engineer',
-        'iOS Developer', 'Android Developer',
-        'iOS Engineer', 'Android Engineer',
-        'Scala Engineer',
-        'Wordpress Developer',
-        'Application Engineer',
-        'Compiler/Language Engineer',
-        'Front End Engineer',
-        'Front-End'
-    ]
-    result = filter_jobs(title, tags)
-    anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_test_job(title):
-    tags = ['qa', 'test', 'sdet', 'quality assurance']
-    result = filter_jobs(title, tags)
-    anti_filters = ['manager', 'director', 'head']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_web3_job(title):
-    tags = ['Blockchain Developer', 'Cryptography Engineer', 'Protocol Engineer', 'Protocol Research',
-            'Zero Knowledge Research Engineer', 'Smart Contract Engineer', 'Blockchain Engineer',
-            'Blockchain Client Engineer', 'Cryptographer', 'Blockchain Integration Specialist',
-            'Solidity Developer', 'Web3 developer', 'Smart Contract Developer', 'Engineer - Smart Contract',
-            'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits', 'Solidity Engineer',
-            'Research Engineer', 'Zero-Knowledge Proof']
-    result = filter_jobs(title, tags)
-    anti_filters = ['manager', 'director', 'head']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_finance_job(title):
-    tags = ['Accountant', 'Treasury', 'Finance', 'Accounting', 'Tax Specialist', 'Financial', 'FinCrime',
-            'Accounts Payable', 'Treasurer', 'Payroll Specialist', 'Corporate Controller', 'Tax Analyst',
-            'Accounts Receivable', 'Payroll Coordinator', 'Revenue Analyst']
-    result = filter_jobs(title, tags)
-    anti_filters = ['manager', 'director', 'head of', 'Scientist', 'Engineer']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_dev_ops_job(title):
-    tags = [
-        'devops', 'sre',
-        'Dev Ops Engineer',
-        'site reliability',
-        'platforms engineer',
-        'infrastructure engineer',
-        'network engineer',
-        'Platform Engineer',
-        'Tooling Engineer',
-        'Infrastructure Development Engineer',
-        'Infrastructure & Tooling',
-        'Release Automation Engineer',
-        'Kubernetes Engineer'
-    ]
-    result = filter_jobs(title, tags)
-    anti_filters = ['test', 'qa', 'manager', 'sdet', 'director']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_security_job(title):
-    tags = [
-        'Cloud Security Engineer',
-        'Security Engineer',
-        'Security Response Engineer',
-        'Security Lead',
-        'Cyber Threat', 'SecOps Engineer'
-    ]
-    result = filter_jobs(title, tags)
-    anti_filters = ['test', 'qa', 'manager', 'sdet', 'director', 'counsel']
-    if any(ext.lower() in title.lower() for ext in anti_filters):
-        return False
-    return result
-
-
-def is_data_job(title):
-    tags = ['Data Engineer', 'Data Analyst', 'Data Scientist', 'Data Engineer', 'Data Analytics Engineer',
-            'Data Science', 'DataOps Engineer']
-    return filter_jobs(title, tags)
 
 
 def set_color(title):
