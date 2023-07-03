@@ -90,7 +90,7 @@ def is_web3_job(title):
             'Blockchain Client Engineer', 'Cryptographer', 'Blockchain Integration Specialist',
             'Solidity Developer', 'Web3 developer', 'Smart Contract Developer', 'Engineer - Smart Contract',
             'Cryptography Researcher', 'Backend/Solidity', 'Solana/Rust', 'ZK Circuits', 'Solidity Engineer',
-            'Research Engineer', 'Zero-Knowledge Proof', 'DeFi Lead']
+            'Research Engineer', 'Zero-Knowledge Proof', 'DeFi Lead', 'Cryptographic Engineer', 'Consensus Engineer']
     result = filter_jobs(title, tags)
     anti_filters = ['manager', 'director', 'head']
     if any(ext.lower() in title.lower() for ext in anti_filters):

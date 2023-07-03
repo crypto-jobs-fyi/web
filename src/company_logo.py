@@ -28,7 +28,7 @@ def get_logo(company_name):
         'dfinity', 'web3auth',
         'parity', 'kiln',
         'ankr', 'ultra',
-        'solana',
+        'solana', 'osmosisdex',
         'ledger',
         'flashbots',
         'oplabs',
