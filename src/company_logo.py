@@ -121,7 +121,9 @@ def get_logo(company_name):
         'arbitrumfoundation',
         'magic', 'evmos',
         'outlierventures',
-        'walletconnect'
+        'walletconnect',
+        'almanak', 'dydxopsdao',
+        'grayscaleinvestments',
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
