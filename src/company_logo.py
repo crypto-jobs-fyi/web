@@ -105,7 +105,7 @@ def get_logo(company_name):
         'smart-token-labs',
         'avantgarde',
         'cryptofinance',
-        'Luxor',
+        'Luxor', 'wirex',
         'anchorage',
         'biconomy',
         'solanafoundation',
