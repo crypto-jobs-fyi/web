@@ -84,7 +84,7 @@ def get_logo(company_name):
         'risklabs',
         'circle',
         'bittrex',
-        'kaiko',
+        'kaiko', 'coinmetrics',
         'hiro', 'serotonin',
         'zora', 'aptoslabs',
         'filecoinfoundation',
