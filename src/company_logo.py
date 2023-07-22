@@ -100,7 +100,7 @@ def get_logo(company_name):
         'Polygon',
         'multiversx',
         'status',
-        'cexio',
+        'cexio', 'ethenalabs',
         'dappradar',
         'web3',
         'smart-token-labs',
