@@ -103,7 +103,7 @@ def get_logo(company_name):
         'cexio', 'ethenalabs',
         'dappradar',
         'web3', 'xapo',
-        '21co',
+        '21co', 'goldsky',
         'smart-token-labs',
         'avantgarde',
         'cryptofinance',
