@@ -99,7 +99,7 @@ def get_logo(company_name):
         'avalabs',
         'Polygon',
         'multiversx',
-        'status',
+        'status', 'Blockworks',
         'cexio', 'ethenalabs',
         'dappradar',
         'web3', 'xapo',
