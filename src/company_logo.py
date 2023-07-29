@@ -126,6 +126,8 @@ def get_logo(company_name):
         'walletconnect',
         'almanak', 'dydxopsdao',
         'grayscaleinvestments',
+        'prepo', 'safe.global',
+        'RabbitHole', 'clockwork-labs'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
