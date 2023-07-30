@@ -29,7 +29,7 @@ def get_logo(company_name):
         'parity', 'kiln',
         'ankr', 'ultra',
         'solana', 'osmosisdex',
-        'ledger',
+        'ledger', 'Keyrock',
         'flashbots',
         'oplabs',
         'optimism',
