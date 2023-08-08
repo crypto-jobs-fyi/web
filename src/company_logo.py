@@ -116,7 +116,7 @@ def get_logo(company_name):
         'protocollabs',
         'foundrydigital',
         'o1labs', 'trmlabs',
-        '3boxlabs',
+        '3boxlabs', 'coinspaid',
         'BlockSwap',
         'orderlynetwork',
         'sprucesystems',
