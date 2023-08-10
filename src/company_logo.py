@@ -58,7 +58,7 @@ def get_logo(company_name):
         'kraken', 'taxbit',
         'ethglobal',
         'harmony',
-        'bebop',
+        'bebop', 'Notabene',
         'chainstack',
         'chainlink',
         'axiomzen',
