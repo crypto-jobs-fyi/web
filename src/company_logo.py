@@ -45,7 +45,7 @@ def get_logo(company_name):
         'bitpanda',
         'bitgo', 'blox-route',
         'shardeum',
-        'bitmex',
+        'bitmex', 'StationLabs',
         'OKX', 'jumpcrypto',
         'tether', 'poap',
         'paradigm.co',
