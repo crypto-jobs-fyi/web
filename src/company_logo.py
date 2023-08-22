@@ -65,7 +65,7 @@ def get_logo(company_name):
         'axiomzen',
         'bitwise',
         'tessera',
-        'paxos',
+        'paxos', 'with-foundation',
         'eigenlabs',
         'bitcoin',
         'binance',
