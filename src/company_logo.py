@@ -74,7 +74,7 @@ def get_logo(company_name):
         'bitstamp',
         'consensys',
         'ripple',
-        'aztec',
+        'aztec', 'toku',
         'stellar',
         'sygnum',
         'okcoin',
