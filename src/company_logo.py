@@ -31,8 +31,7 @@ def get_logo(company_name):
         'solana', 'osmosisdex',
         'ledger', 'Keyrock',
         'flashbots',
-        'oplabs',
-        'optimism',
+        'oplabs', 'optimism',
         'bitfinex',
         'magiceden',
         'nethermind',
@@ -130,7 +129,10 @@ def get_logo(company_name):
         'prepo', 'safe.global',
         'RabbitHole', 'clockwork-labs',
         'Sui.Foundation', 'center',
-        'paraswap', 'stakefish'
+        'paraswap', 'stakefish',
+        'connext-network',
+        'request.network',
+        'superfluid', 'thetie'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
