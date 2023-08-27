@@ -57,7 +57,7 @@ def get_logo(company_name):
         'AQX', 'conduit',
         'kraken', 'taxbit',
         'ethglobal',
-        'harmony',
+        'harmony', 'theblock',
         'bebop', 'Notabene',
         'chainstack',
         'chainlink',
