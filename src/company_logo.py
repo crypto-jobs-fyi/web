@@ -68,7 +68,7 @@ def get_logo(company_name):
         'eigenlabs',
         'bitcoin',
         'binance',
-        'bitget',
+        'bitget', 'hextrust',
         'stably',
         'bitstamp',
         'consensys',
