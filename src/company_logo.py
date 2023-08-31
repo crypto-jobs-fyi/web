@@ -132,7 +132,8 @@ def get_logo(company_name):
         'paraswap', 'stakefish',
         'connext-network',
         'request.network',
-        'superfluid', 'thetie'
+        'superfluid', 'thetie',
+        'glassnode'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
