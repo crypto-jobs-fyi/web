@@ -133,7 +133,7 @@ def get_logo(company_name):
         'connext-network',
         'request.network',
         'superfluid', 'thetie',
-        'glassnode'
+        'glassnode', 'impossiblecloud'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
