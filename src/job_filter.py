@@ -150,3 +150,9 @@ def is_data_job(title):
     tags = ['Data Engineer', 'Data Analyst', 'Data Scientist', 'Data Engineer', 'Data Analytics Engineer',
             'Data Science', 'DataOps Engineer']
     return filter_jobs(title, tags)
+
+
+def is_compliance_job(title):
+    tags = ['Compliance Analyst', 'Compliance Manager', 'Compliance Associate', 'Compliance Officer',
+            'Compliance and Risk Officer', 'Compliance Specialist', 'Compliance Assistant', 'Compliance Lead']
+    return filter_jobs(title, tags)

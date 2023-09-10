@@ -5,7 +5,7 @@ from datetime import datetime
 from src.company_item import CompanyItem
 from src.company_logo import get_logo
 from src.job_filter import is_test_job, is_dev_job, is_dev_ops_job, is_data_job, is_finance_job, is_web3_job, \
-    is_security_job
+    is_security_job, is_compliance_job
 
 companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
@@ -35,6 +35,7 @@ num_fin = 0
 num_ops = 0
 num_data = 0
 num_sec = 0
+num_comp = 0
 for j in current_jobs:
     j_title = j['title']
     if is_dev_job(j_title):
@@ -51,11 +52,14 @@ for j in current_jobs:
         num_ops = num_ops + 1
     if is_security_job(j_title):
         num_sec = num_sec + 1
+    if is_compliance_job(j_title):
+        num_comp = num_comp + 1
 
 print(f'>>> Numer of Dev jobs: {num_dev}')
 print(f'>>> Numer of Data jobs: {num_data}')
 print(f'>>> Numer of Test jobs: {num_test}')
 print(f'>>> Numer of Finance jobs: {num_fin}')
+print(f'>>> Numer of Compliance jobs: {num_comp}')
 
 
 def center_td(text):
@@ -78,9 +82,10 @@ with open('index.html', 'w') as f:
     devops_link = '<th width=11% bgcolor="lightyellow"><a href="devops.html" target="_blank">DevOps/SRE jobs</a></th>'
     data_link = '<th width=11% bgcolor="cyan"><a href="data.html" target="_blank">Data jobs</a></th>'
     security_link = '<th width=11% bgcolor="Khaki"><a href="security.html" target="_blank">Security jobs</a></th>'
-    links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link, security_link]
+    compliance_link = '<th width=11% bgcolor="MediumPurple"><a href="compliance.html" target="_blank">Compliance jobs</a></th>'
+    links = [test_link, dev_link, web3_link, finance_link, devops_link, data_link, security_link, compliance_link]
     joined_links = f"<tr>{''.join(links)}</tr>"
-    joined_nums = f"<tr>{center_td(num_test)}{center_td(num_dev)}{center_td(num_web3)}{center_td(num_fin)}{center_td(num_ops)}{center_td(num_data)}{center_td(num_sec)}</tr>"
+    joined_nums = f"<tr>{center_td(num_test)}{center_td(num_dev)}{center_td(num_web3)}{center_td(num_fin)}{center_td(num_ops)}{center_td(num_data)}{center_td(num_sec)}{center_td(num_comp)}</tr>"
     f.write(f"<table width='78%' align='center' border=1>{joined_links}{joined_nums}</table>")
     f.write(f'<p align="center"> </p>')
 with open('test.html', 'w') as f:
@@ -96,6 +101,8 @@ with open('web3.html', 'w') as f:
 with open('data.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 with open('security.html', 'w') as f:
+    f.write('<!DOCTYPE html>')
+with open('compliance.html', 'w') as f:
     f.write('<!DOCTYPE html>')
 
 
@@ -114,6 +121,8 @@ def set_color(title):
         return ' bgcolor="DeepSkyBlue" '
     elif is_security_job(title):
         return ' bgcolor="Khaki" '
+    elif is_compliance_job(title):
+        return ' bgcolor="MediumPurple" '
     else:
         return ""
 
@@ -211,6 +220,12 @@ def add_jobs_to_security(company_item: CompanyItem, jobs_data):
         security_file.write(html)
 
 
+def add_jobs_to_compliance(company_item: CompanyItem, jobs_data):
+    html = dict_to_html_table_with_header_and_filter(company_item.company_name, jobs_data, filter=is_security_job)
+    with open('compliance.html', 'a') as compliance_file:
+        compliance_file.write(html)
+
+
 for company in company_list:
     company_logo = get_logo(company.company_name)
     company_data = list(filter(lambda jd: jd.get('company') == company.company_name, current_jobs))
@@ -222,3 +237,4 @@ for company in company_list:
     add_jobs_to_finance(company, company_data)
     add_jobs_to_web3(company, company_data)
     add_jobs_to_security(company, company_data)
+    add_jobs_to_compliance(company, company_data)
