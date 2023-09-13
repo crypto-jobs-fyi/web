@@ -78,7 +78,7 @@ def is_dev_job(title):
 def is_test_job(title):
     tags = ['qa', 'test', 'sdet', 'quality assurance']
     result = filter_jobs(title, tags)
-    anti_filters = ['manager', 'director', 'head']
+    anti_filters = ['director', 'head']
     if any(ext.lower() in title.lower() for ext in anti_filters):
         return False
     return result
