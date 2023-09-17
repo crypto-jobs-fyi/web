@@ -74,7 +74,8 @@ with open('index.html', 'w') as f:
     f.write(f'<p align="center"> If you find this page useful please donate ETH/ERC-20* to {eth_wallet_link} </p>')
     f.write(f'<p align="center"> *On Etherium, Arbitrum, Optimism or Polygon </p>')
     table_link = '<a href="table.html"> View as Table </a>'
-    f.write(f'<p align="center"> || {table_link} || </p>')
+    daily_link = '<a href="daily.html"> Daily as Table </a>'
+    f.write(f'<p align="center"> || {table_link} || {daily_link} ||</p>')
     test_link = '<th width=11% bgcolor="lightgreen"><a href="test.html" target="_blank">Test jobs</a></th>'
     dev_link = '<th width=11% bgcolor="lightblue"><a href="dev.html" target="_blank">Dev jobs</a></th>'
     web3_link = '<th width=11% bgcolor="DeepSkyBlue"><a href="web3.html" target="_blank">Web3 jobs</a></th>'
