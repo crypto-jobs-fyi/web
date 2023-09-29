@@ -134,7 +134,8 @@ def get_logo(company_name):
         'request.network',
         'superfluid', 'thetie',
         'glassnode', 'impossiblecloud',
-        'zodia-custody', 'Bastion'
+        'zodia-custody', 'Bastion',
+        'Artemisxyz', 'cryptio'
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
