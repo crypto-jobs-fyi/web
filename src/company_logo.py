@@ -111,7 +111,7 @@ def get_logo(company_name):
         'anchorage',
         'biconomy',
         'solanafoundation',
-        'fuellabs',
+        'fuellabs', 'iyield',
         'immunefi',
         'protocollabs',
         'foundrydigital',
