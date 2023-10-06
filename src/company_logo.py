@@ -112,7 +112,7 @@ def get_logo(company_name):
         'biconomy',
         'solanafoundation',
         'fuellabs', 'iyield',
-        'immunefi',
+        'immunefi', 'obol-tech',
         'protocollabs',
         'foundrydigital',
         'o1labs', 'trmlabs',
