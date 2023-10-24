@@ -63,7 +63,7 @@ def get_logo(company_name):
         'chainlink',
         'axiomzen', 'bitwise',
         'paxos', 'with-foundation',
-        'eigenlabs',
+        'eigenlabs', 'HQxyz',
         'bitcoin', 'brave',
         'tatum', 'binance',
         'bitget', 'hextrust',
