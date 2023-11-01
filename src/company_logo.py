@@ -83,7 +83,7 @@ def get_logo(company_name):
         'celestia',
         'polymerlabs',
         'uniswaplabs',
-        'moonpay',
+        'moonpay', 'swellnetwork',
         'moonwalk',
         'figment',
         'blockdaemon',
