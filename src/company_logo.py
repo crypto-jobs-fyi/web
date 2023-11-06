@@ -128,7 +128,8 @@ def get_logo(company_name):
         'zodia-custody', 'Bastion',
         'Artemisxyz', 'cryptio',
         'scroll', 'cointracker',
-        'coinbase', 'gemini'
+        'coinbase', 'gemini',
+        'tusd', 'enjin',
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
