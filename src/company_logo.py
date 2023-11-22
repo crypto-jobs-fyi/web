@@ -130,6 +130,7 @@ def get_logo(company_name):
         'scroll', 'cointracker',
         'coinbase', 'gemini',
         'tusd', 'enjin',
+        'nomic.foundation',
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
