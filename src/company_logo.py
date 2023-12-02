@@ -84,7 +84,7 @@ def get_logo(company_name):
         'polymerlabs',
         'uniswaplabs',
         'moonpay', 'swellnetwork',
-        'moonwalk',
+        'moonwalk', 'near',
         'figment',
         'blockdaemon',
         'avalabs',
