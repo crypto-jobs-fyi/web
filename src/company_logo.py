@@ -80,7 +80,7 @@ def get_logo(company_name):
         'hiro', 'serotonin',
         'zora', 'aptoslabs',
         'filecoinfoundation',
-        'celestia',
+        'celestia', 'gate.io',
         'polymerlabs',
         'uniswaplabs',
         'moonpay', 'swellnetwork',
