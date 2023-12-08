@@ -81,7 +81,7 @@ def get_logo(company_name):
         'zora', 'aptoslabs',
         'filecoinfoundation',
         'celestia', 'gate.io',
-        'polymerlabs',
+        'polymerlabs', 'lido',
         'uniswaplabs',
         'moonpay', 'swellnetwork',
         'moonwalk', 'near',
