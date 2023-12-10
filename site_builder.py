@@ -139,7 +139,7 @@ def dict_to_html_table_with_header(company_item: CompanyItem, job_list, logo='')
         wrapped_link = elem['link']
         location = elem['location']
         job_title = elem['title']
-        job_age = jobs_age[elem['link']]
+        job_age = jobs_age.get(elem['link'], '')
         job_age_title = f"title='{job_age} day(s)'"
         job_link_td = f"<td width='12%' align='center' {job_age_title}>{wrapped_link}</td>"
         html_table += f"<tr {color_code}><td width='22%'>{location}</td><td>{job_title}</td><td align='center'>{job_age}</td>{job_link_td}</tr>"
