@@ -60,7 +60,7 @@ def get_logo(company_name):
         'harmony', 'theblock',
         'bebop', 'Notabene',
         'chainstack',
-        'chainlink',
+        'chainlink', 'phantom',
         'axiomzen', 'bitwise',
         'paxos', 'with-foundation',
         'eigenlabs', 'HQxyz',
