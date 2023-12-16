@@ -56,7 +56,7 @@ def get_logo(company_name):
         'chia', 'iofinnet',
         'AQX', 'conduit',
         'kraken', 'taxbit',
-        'ethglobal',
+        'ethglobal', 'linera.io',
         'harmony', 'theblock',
         'bebop', 'Notabene',
         'chainstack',
