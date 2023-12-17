@@ -75,7 +75,7 @@ def get_logo(company_name):
         'clearmatics', 'worldcoin',
         'edgeandnode', 'risklabs',
         'exponential', 'circle',
-        'bittrex', 'rain',
+        'auroralabs', 'rain',
         'kaiko', 'coinmetrics',
         'hiro', 'serotonin',
         'zora', 'aptoslabs',
