@@ -82,7 +82,7 @@ def get_logo(company_name):
         'filecoinfoundation',
         'celestia', 'gate.io',
         'polymerlabs', 'lido',
-        'uniswaplabs',
+        'uniswaplabs', 'li.fi',
         'moonpay', 'swellnetwork',
         'moonwalk', 'near',
         'figment', 'blockdaemon',
