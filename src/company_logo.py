@@ -131,6 +131,7 @@ def get_logo(company_name):
         'tusd', 'enjin',
         'nomic.foundation',
         'mina-foundation',
+        'pyth', 'coingecko',
     ]
     if company_name in company_logos:
         return build_img_tag(company_name)
