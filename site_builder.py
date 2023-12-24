@@ -132,11 +132,12 @@ def dict_to_html_table_with_header(company_item: CompanyItem, job_list, logo='')
     html_table = '<table width="78%" align="center" border="1">'
     jobs_total = f"Total Jobs: {len(job_list)}"
     header_link = f"<a href='{company_item.company_url}' target='_blank'>{company_item.company_name.upper()}</a>"
-    wh_header_link = f"</th> {header_link} </th>"
+    wh_header_link = f"<th> {header_link} </th>"
     jobs_total_link = f"<a href='{company_item.jobs_url}' target='_blank'> {jobs_total} </a>"
+    wh_logo = f"<th width='20%' align='center'> {logo} </th>"
     wh_job_age = f"<th width='4%' align='center'> Age </th>"
     wh_jobs_total = f"<th width='12%'> {jobs_total_link} </th>"
-    html_table += f"<tr><th width='20%'> {logo} {wh_header_link}{wh_job_age}{wh_jobs_total}</tr>"
+    html_table += f"<tr>{wh_logo}{wh_header_link}{wh_job_age}{wh_jobs_total}</tr>"
     for elem in job_list:
         color_code = set_color(elem['title'])
         wrapped_link = elem['link']
