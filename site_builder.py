@@ -132,17 +132,21 @@ def dict_to_html_table_with_header(company_item: CompanyItem, job_list, logo='')
     html_table = '<table width="78%" align="center" border="1">'
     jobs_total = f"Total Jobs: {len(job_list)}"
     header_link = f"<a href='{company_item.company_url}' target='_blank'>{company_item.company_name.upper()}</a>"
+    wh_header_link = f"</th> {header_link} </th>"
     jobs_total_link = f"<a href='{company_item.jobs_url}' target='_blank'> {jobs_total} </a>"
-    html_table += f"<tr><th width='20%'> {logo} </th><th> {header_link} </th><th width='4%' align='center'> Age </th><th width='12%'> {jobs_total_link} </th></tr>"
+    wh_job_age = f"<th width='4%' align='center'> Age </th>"
+    wh_jobs_total = f"<th width='12%'> {jobs_total_link} </th>"
+    html_table += f"<tr><th width='20%'> {logo} {wh_header_link}{wh_job_age}{wh_jobs_total}</tr>"
     for elem in job_list:
         color_code = set_color(elem['title'])
         wrapped_link = elem['link']
-        location = elem['location']
-        job_title = elem['title']
+        w_location = f"<td width='22%'>{elem['location']}</td>"
+        w_job_title = f"<td>{elem['title']}</td>"
         job_age = jobs_age.get(elem['link'], '')
         job_age_title = f"title='{job_age} day(s)'"
+        w_job_age = f"<td align='center'>{job_age}</td>"
         job_link_td = f"<td width='12%' align='center' {job_age_title}>{wrapped_link}</td>"
-        html_table += f"<tr {color_code}><td width='22%'>{location}</td><td>{job_title}</td><td align='center'>{job_age}</td>{job_link_td}</tr>"
+        html_table += f"<tr {color_code}>{w_location}{w_job_title}{w_job_age}{job_link_td}</tr>"
     html_table += "</table>"
     return html_table
 
@@ -161,13 +165,21 @@ def dict_to_html_table_with_header_and_filter(company_name, job_list, filter):
         return ''
 
     html_table = '<table width="78%" align="center" border="1">'
-    html_table += f"<tr><th width='22%'> Location </th><th>" + company_name.upper() + "</th><th width='12%' >" + jobs_total + "</th></tr>"
+    wh_company_name = f"<th width='22%'> Location </th><th>{company_name.upper()}</th>"
+    wh_job_age = "<th width='6%' > Age </th>"
+    wh_jobs_total = f"<th width='12%' >{jobs_total}</th>"
+    html_table += f"<tr>{wh_company_name}{wh_job_age}{wh_jobs_total}</tr>"
 
     for elem in filtered:
         wrapped_link = elem['link']
         location = elem['location']
         job_title = elem['title']
-        html_table += f"<tr><td width='22%'>{location}</td><td>{job_title}</td><td width='12%' align='center'>{wrapped_link}</td></tr>"
+        job_age = jobs_age.get(elem['link'], '')
+        w_location = f"<td width='22%'>{location}</td>"
+        w_title = f"<td>{job_title}</td>"
+        w_job_age = f"<td align='center'>{job_age}</td>"
+        w_wrapped_link = f"<td width='12%' align='center'>{wrapped_link}</td>"
+        html_table += f"<tr>{w_location}{w_title}{w_job_age}{w_wrapped_link}</tr>"
 
     html_table += "</table>"
     return html_table
