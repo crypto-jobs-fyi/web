@@ -71,8 +71,11 @@ with open('index.html', 'w') as f:
         f'<p align="center"> {first_line} </p>')
     eth_wallet_link = '<a href="https://etherscan.io/address/0x589a0d87d600a6c6faa34c491c9e779f434bc51d" ' \
                       'target="_blank">0x589a0D87d600a6C6fAa34c491C9e779f434bC51d</a>'
-    f.write(f'<p align="center"> If you find this page useful please donate ETH/ERC-20* to {eth_wallet_link} </p>')
-    f.write(f'<p align="center"> *On Etherium, Arbitrum, Optimism or Polygon </p>')
+    sol_wallet_link = '<a href="https://solscan.io/account/78FHzHhAESzd6NKufTfenhqsp9hWUXB72rpCZBhZ6tHG" ' \
+                      'target="_blank">78FHzHhAESzd6NKufTfenhqsp9hWUXB72rpCZBhZ6tHG</a>'
+    f.write(f'<p align="center"> If you find this page useful please donate ETH/ERC-20/SOL </p>')
+    f.write(f'<p align="center"> On Etherium, Arbitrum, Optimism or Polygon to {eth_wallet_link} </p>')
+    f.write(f'<p align="center"> On Solana to {sol_wallet_link} </p>')
     table_link = '<a href="table.html"> View as Table </a>'
     daily_link = '<a href="daily.html"> Daily as Table </a>'
     f.write(f'<p align="center"> || {table_link} || {daily_link} ||</p>')
