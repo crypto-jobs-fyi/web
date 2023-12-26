@@ -51,7 +51,7 @@ def get_logo(company_name):
         'paradigm.xyz',
         'dune', 'cere-network',
         'bitfury', 'enso',
-        'archblock',
+        'archblock', 'dourolabs',
         '0x', 'oasisnetwork',
         'chia', 'iofinnet',
         'AQX', 'conduit',
