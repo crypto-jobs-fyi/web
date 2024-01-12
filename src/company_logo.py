@@ -95,7 +95,7 @@ def get_logo(company_name):
         'web3', 'xapo',
         '21co', 'goldsky',
         'smart-token-labs',
-        'avantgarde',
+        'avantgarde', 'coinlist',
         'cryptofinance',
         'Luxor', 'wirex',
         'anchorage', 'Tenderly',
