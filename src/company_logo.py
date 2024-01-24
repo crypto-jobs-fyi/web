@@ -43,7 +43,7 @@ def get_logo(company_name):
         'mobilecoin',
         'bitpanda',
         'bitgo', 'blox-route',
-        'shardeum',
+        'shardeum', 'monad',
         'bitmex', 'StationLabs',
         'OKX', 'jumpcrypto',
         'tether', 'poap',
