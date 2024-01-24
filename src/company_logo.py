@@ -91,7 +91,7 @@ def get_logo(company_name):
         'multiversx',
         'status', 'Blockworks',
         'cexio', 'ethenalabs',
-        'dappradar',
+        'dappradar', 'expopulus',
         'web3', 'xapo',
         '21co', 'goldsky',
         'smart-token-labs',
