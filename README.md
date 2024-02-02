@@ -11,6 +11,10 @@ If you find this project useful please donate ETH/ERC-20 to [0x589a0d87d600a6c6f
 Let's try GitHub pages here: https://crypto-jobs-fyi.github.io/web/
 Locally just run `python3 -m http.server 8000` and open `localhost:8000` in your browser.
 
+# Git
+To push current changes use 
+- git commit -am "`date +\%d-\%b`"
+
 # roadmap
 - automate scraping positions from most popular HR platforms
 - enable simple way of displaying these positions in browser
