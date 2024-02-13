@@ -41,7 +41,7 @@ def get_logo(company_name):
         'quiknodeinc',
         'wintermute',
         'mobilecoin',
-        'bitpanda',
+        'bitpanda', 'SeiLabs',
         'bitgo', 'blox-route',
         'shardeum', 'monad',
         'bitmex', 'StationLabs',
