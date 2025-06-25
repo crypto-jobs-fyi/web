@@ -1,9 +1,11 @@
 import json
 import urllib.request
+import ssl
 from src.company_item import CompanyItem
 
+context = ssl._create_unverified_context()
 companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
-with urllib.request.urlopen(companies_url) as url:
+with urllib.request.urlopen(companies_url, context=context) as url:
     data = json.load(url)
 
 print(f'Number of companies: {len(data)}')

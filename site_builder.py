@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import ssl
 from datetime import datetime
 
 from src.company_item import CompanyItem
@@ -7,19 +8,20 @@ from src.company_logo import get_logo
 from src.job_filter import is_test_job, is_dev_job, is_dev_ops_job, is_data_job, is_finance_job, is_web3_job, \
     is_security_job, is_compliance_job
 
+context = ssl._create_unverified_context()
 companies_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/companies.json"
 jobs_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs.json"
 jobs_age_url = "https://raw.githubusercontent.com/crypto-jobs-fyi/crawler/main/jobs_age.json"
-with urllib.request.urlopen(companies_url) as url:
+with urllib.request.urlopen(companies_url, context=context) as url:
     company_list_json = json.load(url)
 company_list = []
 for it in company_list_json:
     company_list.append(CompanyItem(it['company_name'], it['company_url'], it['jobs_url']))
 
 just_date = datetime.date(datetime.now())
-with urllib.request.urlopen(jobs_url) as url:
+with urllib.request.urlopen(jobs_url, context=context) as url:
     current_jobs = json.load(url)['data']
-with urllib.request.urlopen(jobs_age_url) as url:
+with urllib.request.urlopen(jobs_age_url, context=context) as url:
     jobs_age = json.load(url)
 
 total_jobs = len(current_jobs)
