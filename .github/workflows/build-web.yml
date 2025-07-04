@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  run-crawler:
+  run-web-builder:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -34,7 +34,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: update Web [automated]'
           base: main
-          branch: 'auto/crawler-update'
+          branch: 'auto/web-update'
           title: 'Automated update from site_builder.py'
           body: 'This PR contains changes made by running site_builder.py via GitHub Actions.'
           delete-branch: true
